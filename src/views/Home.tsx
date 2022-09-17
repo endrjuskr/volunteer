@@ -23,8 +23,8 @@ const Home: React.FC<any> = ({ navigation }) => {
             >
                 {server.feed.map(item => (
                     <View key={item.id}>
-                        <TouchableHighlight style={{flex: 1}}
-                            onPress={() => navigation.navigate('Details')}>
+                        <TouchableHighlight style={{ flex: 1 }}
+                            onPress={() => navigation.navigate('Details', { item })}>
                             <Feed item={item} play={Number(item.id) === active} />
                         </TouchableHighlight>
                     </View>
