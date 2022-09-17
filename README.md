@@ -13,9 +13,7 @@
 * React Native
 * Google Firebase
 * OpenAI API
-* 
 
 ## Authors
-<a href="https://github.com/endrujskr/volunteer/contributors">
-  <img src="https://opencollective.com/volunteer/contributors.svg?width=890&button=false">
-</a>
+* Andrzej Skrodzki
+* Krzysztof Styrc
