@@ -1,6 +1,8 @@
 {
   "expo": {
-    "plugins": ["@react-native-voice/voice"],
+    "plugins": [
+      "@react-native-voice/voice"
+    ],
     "name": "volunteer-react",
     "slug": "volunteer-react",
     "version": "1.0.0",
@@ -25,10 +27,19 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.kstyrc.volunteerreact"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "239cd00c-1475-4b03-a7b0-9ff896761e4a"
+      }
     }
   }
 }

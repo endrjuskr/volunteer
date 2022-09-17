@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
+  TextInput,
   View,
   Image,
   TouchableHighlight,
@@ -20,8 +21,8 @@ type State = {
   error: string;
   end: string;
   started: string;
-  results: string[] | undefined;
-  partialResults: string[] | undefined;
+  results: string[];
+  partialResults: string[];
 };
 
 class Explore extends Component<Props, State> {
@@ -81,19 +82,19 @@ class Explore extends Component<Props, State> {
   onSpeechResults = (e: SpeechResultsEvent) => {
     console.log('onSpeechResults: ', e);
     this.setState({
-      results: e.value,
+      results: e.value === undefined ? [] : e.value,
     });
   };
 
   onSpeechPartialResults = (e: SpeechResultsEvent) => {
     console.log('onSpeechPartialResults: ', e);
     this.setState({
-      partialResults: e.value,
+      partialResults: e.value === undefined ? [] : e.value,
     });
   };
 
   onSpeechVolumeChanged = (e: any) => {
-    console.log('onSpeechVolumeChanged: ', e);
+    // console.log('onSpeechVolumeChanged: ', e);
     this.setState({
       pitch: e.value,
     });
@@ -150,48 +151,51 @@ class Explore extends Component<Props, State> {
     });
   };
 
+  _updateInput = (r: string) => {
+      this.setState({results: [r]})
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native Voice!</Text>
-        <Text style={styles.instructions}>
-          Press the button and start speaking.
-        </Text>
-        <Text style={styles.stat}>{`Started: ${this.state.started}`}</Text>
-        <Text style={styles.stat}>{`Recognized: ${
+           <TextInput 
+            style={styles.text}
+            onChangeText={this._updateInput}
+            value={(this.state.end ? this.state.results : this.state.partialResults)[0] || ""}
+            multiline={true} />
+        
+        <Text style={styles.welcome}>How would you like to volunteer?</Text>
+        {/* <Text style={styles.instructions}>
+          Press a button and talk
+        </Text> */}
+        {/* <Text style={styles.stat}>{`Recognized: ${
           this.state.recognized
-        }`}</Text>
-        <Text style={styles.stat}>{`Pitch: ${this.state.pitch}`}</Text>
-        <Text style={styles.stat}>{`Error: ${this.state.error}`}</Text>
-        <Text style={styles.stat}>Results</Text>
-        {this.state.results.map((result, index) => {
-          return (
-            <Text key={`result-${index}`} style={styles.stat}>
-              {result}
-            </Text>
-          );
-        })}
-        <Text style={styles.stat}>Partial Results</Text>
+        }`}</Text> */}
+        {/* <Text style={styles.stat}>{`Pitch: ${this.state.pitch}`}</Text> */}
+        {/* <Text style={styles.stat}>{`Error: ${this.state.error}`}</Text> */}
+        {/* <Text style={styles.stat}>Results</Text> */}
+
+        {/* <Text style={styles.stat}>Partial Results</Text>
         {this.state.partialResults.map((result, index) => {
           return (
             <Text key={`partial-result-${index}`} style={styles.stat}>
               {result}
             </Text>
           );
-        })}
-        <Text style={styles.stat}>{`End: ${this.state.end}`}</Text>
+        })} */}
+        {/* <Text style={styles.stat}>{`Started: ${this.state.started}, End: ${this.state.end}`}</Text> */}
         <TouchableHighlight onPress={this._startRecognizing}>
           <Image style={styles.button} source={require('./button.png')} />
         </TouchableHighlight>
-        <TouchableHighlight onPress={this._stopRecognizing}>
+        {/* <TouchableHighlight onPress={this._stopRecognizing}>
           <Text style={styles.action}>Stop Recognizing</Text>
-        </TouchableHighlight>
-        <TouchableHighlight onPress={this._cancelRecognizing}>
+        </TouchableHighlight> */}
+        {/* <TouchableHighlight onPress={this._cancelRecognizing}>
           <Text style={styles.action}>Cancel</Text>
         </TouchableHighlight>
         <TouchableHighlight onPress={this._destroyRecognizer}>
           <Text style={styles.action}>Destroy</Text>
-        </TouchableHighlight>
+        </TouchableHighlight> */}
       </View>
     );
   }
@@ -199,8 +203,8 @@ class Explore extends Component<Props, State> {
 
 const styles = StyleSheet.create({
   button: {
-    width: 50,
-    height: 50,
+    width: 75,
+    height: 75,
   },
   container: {
     flex: 1,
@@ -212,6 +216,16 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
+  },
+  text: {
+    fontSize: 20,
+    // textAlign: 'center',
+    padding: 10,
+    margin: 10,
+    maxHeight: '50%',
+    height: '50%',
+    width: '100%',
+    borderWidth: 1
   },
   action: {
     textAlign: 'center',
