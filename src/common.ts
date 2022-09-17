@@ -9,7 +9,8 @@ export interface Item {
 }
 
 export type RootStackParamList = {
-    Home: undefined;
+    Explore: undefined;
+    Home: {sorted: boolean};
     Details: { item: Item };
     Submission: undefined;
   };

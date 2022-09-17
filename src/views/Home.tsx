@@ -11,13 +11,19 @@ import { RootStackParamList } from "../common";
 export interface HomeProps
   extends NativeStackScreenProps<RootStackParamList, "Home"> {}
 
-const Home: React.FC<HomeProps> = ({ navigation }) => {
+const Home: React.FC<HomeProps> = ({ route, navigation }) => {
   const [active, setActive] = useState(0);
   const styles = StyleSheet.create({
     view: {
       flex: 1,
     },
   });
+  const isSorted = route.params.sorted;
+  let items = [...server.feed];
+  if (!isSorted) {
+    items.reverse();
+    items = items.map((item, id) => ({ ...item, id }));
+  }
   return (
     <View style={styles.view}>
       <PagerView
@@ -28,11 +34,14 @@ const Home: React.FC<HomeProps> = ({ navigation }) => {
         style={{ flex: 1 }}
         initialPage={0}
       >
-        {server.feed.map((item) => (
+        {items.map((item) => (
           <View key={item.id}>
             <TouchableHighlight
               style={{ flex: 1 }}
-              onPress={() => navigation.navigate("Details", { item })}
+              onPress={() => {
+                setActive(-1);
+                navigation.navigate("Details", { item });
+              }}
             >
               <Feed item={item} play={Number(item.id) === active} />
             </TouchableHighlight>

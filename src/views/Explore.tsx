@@ -1,20 +1,16 @@
-import React, { Component } from 'react';
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-  Image,
-  TouchableHighlight,
-} from 'react-native';
+import React, { Component } from "react";
+import { Image, StyleSheet, Text, TextInput, View } from "react-native";
+import { IconButton } from "@react-native-material/core";
+import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 
 import Voice, {
   SpeechRecognizedEvent,
   SpeechResultsEvent,
   SpeechErrorEvent,
-} from '@react-native-voice/voice';
+} from "@react-native-voice/voice";
+import { RootStackParamList } from "../common";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-type Props = {};
 type State = {
   recognized: string;
   pitch: string;
@@ -25,18 +21,21 @@ type State = {
   partialResults: string[];
 };
 
-class Explore extends Component<Props, State> {
+export interface ExploreProps
+  extends NativeStackScreenProps<RootStackParamList, "Explore"> {}
+
+class Explore extends Component<ExploreProps, State> {
   state = {
-    recognized: '',
-    pitch: '',
-    error: '',
-    end: '',
-    started: '',
+    recognized: "",
+    pitch: "",
+    error: "",
+    end: "",
+    started: "",
     results: [],
     partialResults: [],
   };
 
-  constructor(props: Props) {
+  constructor(props: ExploreProps) {
     super(props);
     Voice.onSpeechStart = this.onSpeechStart;
     Voice.onSpeechRecognized = this.onSpeechRecognized;
@@ -52,49 +51,56 @@ class Explore extends Component<Props, State> {
   }
 
   onSpeechStart = (e: any) => {
-    console.log('onSpeechStart: ', e);
+    console.log("onSpeechStart: ", e);
     this.setState({
-      started: '√',
+      started: "√",
     });
   };
 
   onSpeechRecognized = (e: SpeechRecognizedEvent) => {
-    console.log('onSpeechRecognized: ', e);
+    console.log("onSpeechRecognized: ", e);
     this.setState({
-      recognized: '√',
+      recognized: "√",
     });
   };
 
   onSpeechEnd = (e: any) => {
-    console.log('onSpeechEnd: ', e);
+    console.log("onSpeechEnd: ", e);
     this.setState({
-      end: '√',
+      end: "√",
     });
   };
 
   onSpeechError = (e: SpeechErrorEvent) => {
-    console.log('onSpeechError: ', e);
+    console.log("onSpeechError: ", e);
     this.setState({
       error: JSON.stringify(e.error),
     });
   };
 
   onSpeechResults = (e: SpeechResultsEvent) => {
-    console.log('onSpeechResults: ', e);
+    console.log("onSpeechResults: ", e);
     this.setState({
       results: e.value === undefined ? [] : e.value,
     });
+
+    setTimeout(
+      () =>
+        this.props.navigation.navigate("Home", {
+          sorted: e.value?.some((w) => w.includes("finance")) ?? false,
+        }),
+      500
+    );
   };
 
   onSpeechPartialResults = (e: SpeechResultsEvent) => {
-    console.log('onSpeechPartialResults: ', e);
+    console.log("onSpeechPartialResults: ", e);
     this.setState({
       partialResults: e.value === undefined ? [] : e.value,
     });
   };
 
   onSpeechVolumeChanged = (e: any) => {
-    // console.log('onSpeechVolumeChanged: ', e);
     this.setState({
       pitch: e.value,
     });
@@ -102,17 +108,17 @@ class Explore extends Component<Props, State> {
 
   _startRecognizing = async () => {
     this.setState({
-      recognized: '',
-      pitch: '',
-      error: '',
-      started: '',
+      recognized: "",
+      pitch: "",
+      error: "",
+      started: "",
       results: [],
       partialResults: [],
-      end: '',
+      end: "",
     });
 
     try {
-      await Voice.start('en-US');
+      await Voice.start("en-US");
     } catch (e) {
       console.error(e);
     }
@@ -141,106 +147,90 @@ class Explore extends Component<Props, State> {
       console.error(e);
     }
     this.setState({
-      recognized: '',
-      pitch: '',
-      error: '',
-      started: '',
+      recognized: "",
+      pitch: "",
+      error: "",
+      started: "",
       results: [],
       partialResults: [],
-      end: '',
+      end: "",
     });
   };
 
   _updateInput = (r: string) => {
-      this.setState({results: [r]})
-  }
+    this.setState({ results: [r] });
+  };
 
   render() {
     return (
       <View style={styles.container}>
-           <TextInput 
-            style={styles.text}
-            onChangeText={this._updateInput}
-            value={(this.state.end ? this.state.results : this.state.partialResults)[0] || ""}
-            multiline={true} />
-        
+        <Image style={styles.image} source={require("./icon.png")} />
         <Text style={styles.welcome}>How would you like to volunteer?</Text>
-        {/* <Text style={styles.instructions}>
-          Press a button and talk
-        </Text> */}
-        {/* <Text style={styles.stat}>{`Recognized: ${
-          this.state.recognized
-        }`}</Text> */}
-        {/* <Text style={styles.stat}>{`Pitch: ${this.state.pitch}`}</Text> */}
-        {/* <Text style={styles.stat}>{`Error: ${this.state.error}`}</Text> */}
-        {/* <Text style={styles.stat}>Results</Text> */}
-
-        {/* <Text style={styles.stat}>Partial Results</Text>
-        {this.state.partialResults.map((result, index) => {
-          return (
-            <Text key={`partial-result-${index}`} style={styles.stat}>
-              {result}
-            </Text>
-          );
-        })} */}
-        {/* <Text style={styles.stat}>{`Started: ${this.state.started}, End: ${this.state.end}`}</Text> */}
-        <TouchableHighlight onPress={this._startRecognizing}>
-          <Image style={styles.button} source={require('./button.png')} />
-        </TouchableHighlight>
-        {/* <TouchableHighlight onPress={this._stopRecognizing}>
-          <Text style={styles.action}>Stop Recognizing</Text>
-        </TouchableHighlight> */}
-        {/* <TouchableHighlight onPress={this._cancelRecognizing}>
-          <Text style={styles.action}>Cancel</Text>
-        </TouchableHighlight>
-        <TouchableHighlight onPress={this._destroyRecognizer}>
-          <Text style={styles.action}>Destroy</Text>
-        </TouchableHighlight> */}
+        <IconButton
+          onPress={this._startRecognizing}
+          style={styles.button}
+          icon={() => <Icon name="microphone" color="red" size={50} />}
+        />
+        <Text style={styles.said}>
+          {(this.state.end
+            ? this.state.results
+            : this.state.partialResults)[0] || ""}
+        </Text>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  image: {
+    width: 120,
+    height: 120,
+    marginBottom: 50,
+  },
   button: {
     width: 75,
     height: 75,
   },
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F5FCFF",
   },
   welcome: {
     fontSize: 20,
-    textAlign: 'center',
+    color: "#8A81F5",
+    textAlign: "center",
+    margin: 10,
+  },
+  said: {
+    color: "#8A81F5",
+    textAlign: "center",
     margin: 10,
   },
   text: {
     fontSize: 20,
-    // textAlign: 'center',
     padding: 10,
     margin: 10,
-    maxHeight: '50%',
-    height: '50%',
-    width: '100%',
-    borderWidth: 1
+    maxHeight: "50%",
+    height: "50%",
+    width: "100%",
+    borderWidth: 1,
   },
   action: {
-    textAlign: 'center',
-    color: '#0000FF',
+    textAlign: "center",
+    color: "#0000FF",
     marginVertical: 5,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   instructions: {
-    textAlign: 'center',
-    color: '#333333',
+    textAlign: "center",
+    color: "#333333",
     marginBottom: 5,
   },
   stat: {
-    textAlign: 'center',
-    color: '#B0171F',
+    textAlign: "center",
+    color: "#B0171F",
     marginBottom: 1,
   },
 });
