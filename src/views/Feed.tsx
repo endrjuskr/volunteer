@@ -1,5 +1,5 @@
 import React from 'react';
-import { Animated, Easing } from 'react-native';
+import { Animated, Easing, Image, Text, TextBase } from 'react-native';
 import { StyleSheet, View } from 'react-native';
 import { Video, ResizeMode } from 'expo-av';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -41,17 +41,7 @@ const Feed: React.FC<Props> = ({ play, item }) => {
     });
 
     return (
-        <>
-            {/* <LinearGradient
-                colors={['rgba(0,0,0,.3)', 'transparent']}
-                style={{
-                    position: 'absolute',
-                    left: 0,
-                    right: 0,
-                    top: 0,
-                    height: '70%',
-                }}
-            /> */}
+        <View style={styles.view}>
             <View style={styles.view}>
                 <Video
                     source={{ uri: item.uri }}
@@ -67,17 +57,42 @@ const Feed: React.FC<Props> = ({ play, item }) => {
                     }}
                 />
             </View>
-            {/* <LinearGradient
-                colors={['transparent', 'rgba(0,0,0,.4)']}
-                style={{
-                    position: 'absolute',
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    height: '50%',
-                }}
-            /> */}
-        </>
+            <View style={{
+                width: '100%',
+                height: '100%',
+                display: 'flex',
+                marginTop: '160%',
+                paddingLeft: '5%',
+            }}>
+                <View style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    alignItems: 'center'
+                }}>
+                    <Image
+                        style={{
+                            width: 70,
+                            height: 70,
+                            borderRadius: 35,
+                        }}
+                        source={{
+                            uri: 'https://avatars3.githubusercontent.com/u/45601574',
+                        }}
+                    />
+                    <Text style={{
+                        fontSize: 18,
+                        color: 'white',
+                        marginLeft: '2%'
+                    }}>{item.username}</Text>
+                </View>
+                <Text style={{
+                    marginTop: '2%',
+                    color: 'white'
+                }}>
+                    {item.tags}
+                </Text>
+            </View>
+        </View>
     );
 };
 
