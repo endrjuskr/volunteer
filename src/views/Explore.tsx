@@ -87,7 +87,7 @@ class Explore extends Component<ExploreProps, State> {
     setTimeout(
       () =>
         this.props.navigation.navigate("Home", {
-          sorted: e.value?.some((w) => w.includes("finance")) ?? false,
+          sorted: e.value?.some((w) => w.includes("math")) ?? false,
         }),
       500
     );

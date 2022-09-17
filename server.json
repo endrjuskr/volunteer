@@ -2,29 +2,53 @@
     "feed": [
       {
         "id": 0,
-        "username": "@matheuscastroweb",
-        "tags": "#testvideo #reactnative #tiktok #git #development #github #clone #react",
+        "username": "@kedrcamp",
+        "tags": "#gardening #camp #rescue #forest #sustanability #green #herbs",
         "description": "asdasd asd asda sdas dasd asd asdqweq w",
-        "logo": "https://avatars3.githubusercontent.com/u/45601574",
+        "logo": "https://cdn.dribbble.com/users/650066/screenshots/16917868/media/d6cdee61260d9aa87a0ae35584f203eb.png?compress=1&resize=400x300&vertical=top",
         "reviews":[
-          "https://images.unsplash.com/photo-1571501679680-de32f1e7aad4",
-          "https://images.unsplash.com/photo-1573273787173-0eb81a833b34",
-          "https://media2.giphy.com/media/l4RKn5iJiOEsECiJhf/giphy.gif?cid=ecf05e4771fae016fbb199effb55842f9d9857eb417b0707&rid=giphy.gif&ct=g"
+          "http://192.168.184.47:8000/ezgif-1-5221c7321e.gif?alt=media&token=67ca03dd-d281-4dad-a0ac-8287c2cb2c45",
+          "http://192.168.184.47:8000/testimonial_1.jpeg?alt=media&token=ee812510-9a3f-4c75-88fe-8131d73dc644",
+          "http://192.168.184.47:8000/testimonial_2.jpeg?alt=media&token=8753732e-9ab3-402d-8910-8c974b7e3652"
         ],
-        "uri": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
+        "uri": "http://192.168.184.47:8000/video1.mp4?alt=media&token=3ab0d5b2-4b70-4f96-a11e-b0add96d9cbb"
       },
       {
         "id": 1,
-        "username": "@matheuscastroweb",
-        "tags": "#reactnative #testvideo #tiktok #git #development #github #clone #react",
-        "logo": "https://avatars3.githubusercontent.com/u/45601574",
+        "username": "@foodcampaign",
+        "tags": "#food #sustanability #campaign #waste #climate #zerowaste #nomeat",
+        "logo": "https://i.pinimg.com/originals/9e/d3/0c/9ed30cdb3a2e808d91e99bcf712ac20b.jpg",
         "reviews":[
-          "https://images.unsplash.com/photo-1571501679680-de32f1e7aad4",
-          "https://images.unsplash.com/photo-1573273787173-0eb81a833b34",
-          "https://media2.giphy.com/media/l4RKn5iJiOEsECiJhf/giphy.gif?cid=ecf05e4771fae016fbb199effb55842f9d9857eb417b0707&rid=giphy.gif&ct=g"   
+          "http://192.168.184.47:8000/math_testimonial.jpeg?alt=media&token=ea6483c3-9e5d-4d72-a9f2-6a767102f499",
+          "http://192.168.184.47:8000/math_testimonial_2.jpeg?alt=media&token=d600a505-724d-4694-bbfd-d805fa329ee8",
+          "http://192.168.184.47:8000/teaching-photo1.jpeg?alt=media&token=ccfc0db9-4141-4eee-b355-280d3e38a299",
+          "http://192.168.184.47:8000/teaching-photo2.jpeg?alt=media&token=434bbdf1-dd3b-471f-bb86-567fc75ed98c",
+          "http://192.168.184.47:8000/teaching-photo3.jpeg?alt=media&token=9236572b-73d8-4057-b615-1921cbeff355",
+          "http://192.168.184.47:8000/teaching-photo4.jpeg?alt=media&token=15081018-e69b-42f9-9f0a-50a5b4f321c2",
+          "http://192.168.184.47:8000/teaching-photo5.jpeg?alt=media&token=96ab5878-9053-40f6-8fa0-e52335c7935a",
+          "http://192.168.184.47:8000/teaching-photo6.jpeg?alt=media&token=105f8d05-c0ad-49ee-8909-ae9cbbe3e4f9"
         ],
-        "description": "asdasd asd asda sdas dasd asd asdqweq w",
-        "uri": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+        "description": "We have made it our goal as we travel in our RV to organize volunteer groups across the country within the communities that we LOVE to visit, and encourage everyone and anyone to join us! Recently we worked with @granddesignrv on hosting volunteers at @cultivate.foodrescue , where we packaged and prepared meals for food-insecure children within the community! ✨ Follow us @keithandraini on Instagram and Facebook to find out when and where we will be hosting our next volunteer events! ✨",
+        "uri": "http://192.168.184.47:8000/video2.mp4?alt=media&token=825108e4-bad5-4733-a4e2-a72d79541abe"
+      },
+      {
+        "id": 2,
+        "username": "@studentmath",
+        "tags": "#teaching #math #numbers #iamremarkable #futurefinance #findjob #economics",
+        "logo": "https://static.vecteezy.com/system/resources/previews/005/115/826/original/student-math-logo-template-this-design-use-calculator-symbol-suitable-for-education-free-vector.jpg",
+        "reviews":[
+          "http://192.168.184.47:8000/teaching-photo1.jpeg?alt=media&token=ccfc0db9-4141-4eee-b355-280d3e38a299",
+          "http://192.168.184.47:8000/ezgif-1-5221c7321e.gif?alt=media&token=67ca03dd-d281-4dad-a0ac-8287c2cb2c45",
+          "http://192.168.184.47:8000/teaching-photo2.jpeg?alt=media&token=434bbdf1-dd3b-471f-bb86-567fc75ed98c",
+          "http://192.168.184.47:8000/teaching-photo3.jpeg?alt=media&token=9236572b-73d8-4057-b615-1921cbeff355",
+          "http://192.168.184.47:8000/math_testimonial.jpeg?alt=media&token=ea6483c3-9e5d-4d72-a9f2-6a767102f499",
+          "http://192.168.184.47:8000/math_testimonial_2.jpeg?alt=media&token=d600a505-724d-4694-bbfd-d805fa329ee8",
+          "http://192.168.184.47:8000/teaching-photo4.jpeg?alt=media&token=15081018-e69b-42f9-9f0a-50a5b4f321c2",
+          "http://192.168.184.47:8000/teaching-photo5.jpeg?alt=media&token=96ab5878-9053-40f6-8fa0-e52335c7935a",
+          "http://192.168.184.47:8000/teaching-photo6.jpeg?alt=media&token=105f8d05-c0ad-49ee-8909-ae9cbbe3e4f9"
+        ],
+        "description": "Education volunteers help on a range of programmes that improve education practices and processes. The work undertaken by education volunteers continues long after the volunteer has left, improving the learning of thousands of children. As we work to improve education at all levels, we need volunteers from a range of education backgrounds. We need teachers with experience of all levels and specialisms as well as those with professional backgrounds in education management and policy. If this sounds like you, please join us. Together we will create deep-seated change to educational practices and systems.",
+        "uri": "http://192.168.184.47:8000/teaching-video.mp4?alt=media&token=df523981-a60f-4045-b02b-4b75537c27b7"
       }
     ]
   }

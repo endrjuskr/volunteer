@@ -20,7 +20,7 @@ const Home: React.FC<HomeProps> = ({ route, navigation }) => {
   });
   const isSorted = route.params.sorted;
   let items = [...server.feed];
-  if (!isSorted) {
+  if (isSorted) {
     items.reverse();
     items = items.map((item, id) => ({ ...item, id }));
   }

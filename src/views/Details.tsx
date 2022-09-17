@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   header: {
     width: "100%",
     display: "flex",
-    marginTop: "20%",
+    marginTop: "-10%",
     paddingLeft: "5%",
   },
   headerTop: {
