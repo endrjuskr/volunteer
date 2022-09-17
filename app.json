@@ -1,5 +1,6 @@
 {
   "expo": {
+    "plugins": ["@react-native-voice/voice"],
     "name": "volunteer-react",
     "slug": "volunteer-react",
     "version": "1.0.0",
