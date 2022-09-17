@@ -1,22 +1,25 @@
-import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
 import Home from "./src/views/Home";
 import Details from "./src/views/Details";
-import Submittion from "./src/views/Submittion";
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Submission from "./src/views/Submission";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { RootStackParamList } from "./src/common";
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{
-        headerShown: false
-      }}>
-        <Stack.Screen name="Home2" component={Home} />
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Details" component={Details} />
-        <Stack.Screen name="Submittion" component={Submittion} />
+        <Stack.Screen name="Submission" component={Submission} />
       </Stack.Navigator>
     </NavigationContainer>
   );

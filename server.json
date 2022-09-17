@@ -4,20 +4,26 @@
         "id": 0,
         "username": "@matheuscastroweb",
         "tags": "#testvideo #reactnative #tiktok #git #development #github #clone #react",
-        "music": "Introducing Chromecast. The easiest way to enjoy",
         "description": "asdasd asd asda sdas dasd asd asdqweq w",
-        "likes": 9444,
-        "comments": 6340,
+        "logo": "https://avatars3.githubusercontent.com/u/45601574",
+        "reviews":[
+          "https://images.unsplash.com/photo-1571501679680-de32f1e7aad4",
+          "https://images.unsplash.com/photo-1573273787173-0eb81a833b34",
+          "https://media2.giphy.com/media/l4RKn5iJiOEsECiJhf/giphy.gif?cid=ecf05e4771fae016fbb199effb55842f9d9857eb417b0707&rid=giphy.gif&ct=g"
+        ],
         "uri": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
       },
       {
         "id": 1,
         "username": "@matheuscastroweb",
         "tags": "#reactnative #testvideo #tiktok #git #development #github #clone #react",
-        "music": "HBO GO now works with Chromecast",
+        "logo": "https://avatars3.githubusercontent.com/u/45601574",
+        "reviews":[
+          "https://images.unsplash.com/photo-1571501679680-de32f1e7aad4",
+          "https://images.unsplash.com/photo-1573273787173-0eb81a833b34",
+          "https://media2.giphy.com/media/l4RKn5iJiOEsECiJhf/giphy.gif?cid=ecf05e4771fae016fbb199effb55842f9d9857eb417b0707&rid=giphy.gif&ct=g"   
+        ],
         "description": "asdasd asd asda sdas dasd asd asdqweq w",
-        "likes": 8411,
-        "comments": 2240,
         "uri": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
       }
     ]
